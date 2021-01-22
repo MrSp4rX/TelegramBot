@@ -1,17 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# This program is dedicated to the public domain under the CC0 license.
-
-"""
-Simple Bot to reply to Telegram messages.
-First, a few handler functions are defined. Then, those functions are passed to
-the Dispatcher and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-Usage:
-Basic Echobot example, repeats messages.
-Press Ctrl-C on the command line or send a signal to the process to stop the
-bot.
-"""
 
 import logging
 import os
@@ -49,12 +37,8 @@ logger = logging.getLogger(__name__)
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
-'''def start(update, context):
-    Send a message when the command /start is issued.
-    update.message.reply_text('Hi!')'''
 
 def echo(update, context):
-    """Echo the user message."""
     string = update.message.text
     for word in abuse:
     	if word in string.lower() and update.message.from_user['username'] != 'MrSp4rX':
@@ -66,7 +50,11 @@ def echo(update, context):
     		update.message.reply_text(scrap.main(string))
     		
     	elif '/help' in string:
-    		update.message.reply_text('''Hey, I am a Bot. I was created by Mr. SparX. He is my Owner. You can do these following things with me:''')
+    		update.message.reply_text('''Hey, I am a Bot. I was created by Mr. SparX. He is my Owner. You can do these following things with me:
+    			1. /image category - Its used to get a Picture related to that Query.
+    			2. /help - Its used to get this message.
+    			3. /ping - Its used to check if Bot is Online or Offline.
+    			4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.''')
     	elif '/ping' in string:
     		if update.message.from_user['username'] == 'MrSp4rX':
     			update.message.reply_text('Pong Daddy!')
@@ -99,8 +87,6 @@ def error(update, context):
 def main():
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    # Make sure to set use_context=True to use the new context based callbacks
-    # Post version 12 this will no longer be necessary
     updater = Updater(environ['TOKEN_HERE'], use_context=True)
 
     # Get the dispatcher to register handlers
@@ -108,7 +94,6 @@ def main():
 
     # on different commands - answer in Telegram
     # dp.add_handler(CommandHandler("start", start))
-    # dp.add_handler(CommandHandler("help", help))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
@@ -123,7 +108,6 @@ def main():
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
-
 
 if __name__ == '__main__':
     main()

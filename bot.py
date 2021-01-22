@@ -3,6 +3,7 @@
 
 import logging
 import os
+import wikipedia
 from api import Api
 import scrap
 from random import choice
@@ -49,18 +50,29 @@ def echo(update, context):
     		string = string.replace('/image', '')
     		update.message.reply_text(scrap.main(string))
     		
-    	elif '/start' in string:
+    	elif '/help' in string:
     		update.message.reply_text('''Hey, I am a Bot. I was created by Mr. SparX. He is my Owner. You can do these following things with me:
     			
 1. /image category - Its used to get a Picture related to that Query.
-2. /start - Its used to get this message.
+2. /help - Its used to get this message.
 3. /ping - Its used to check if Bot is Online or Offline.
-4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.''')
+4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.
+5. /wikipedia query - Its used to Search anything on wikipedia.
+''')
     	elif '/ping' in string:
     		if update.message.from_user['username'] == 'MrSp4rX':
     			update.message.reply_text('Pong Daddy!')
     		else:
     			update.message.reply_text('Pong!')
+    	elif '/wikipedia' in string:
+    		string = string.replace('/wikipedia','')
+    		try:
+    			result = wikipedia.summary(string, sentences=3)
+    			update.message.reply_text(f'''According to Wikipedia: 
+
+{result}''')
+    		except:
+    			update.message.reply_text('I can\'t find anything related to {string}.')
     	
     	elif '/ispammer' in string:
     			string = string.replace('/ispammer', '')
@@ -72,7 +84,7 @@ def echo(update, context):
     			elif int(msgs)<=500 and len(number) == 10:
     				update.message.reply_text('Bombing Started Successfully...')
     				Api.infinite(str(number), '',int(msgs))
-    				update.message.reply_text(str(msgs)+ ' Messages Bombed Successfully!!!')
+    				update.message.reply_text(str(msgs)+ ' Bombed Successfully!!!')
     			
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')

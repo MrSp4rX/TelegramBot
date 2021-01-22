@@ -49,11 +49,11 @@ def echo(update, context):
     		string = string.replace('/image', '')
     		update.message.reply_text(scrap.main(string))
     		
-    	elif '/help' in string:
+    	elif '/start' in string:
     		update.message.reply_text('''Hey, I am a Bot. I was created by Mr. SparX. He is my Owner. You can do these following things with me:
     			
 1. /image category - Its used to get a Picture related to that Query.
-2. /help - Its used to get this message.
+2. /start - Its used to get this message.
 3. /ping - Its used to check if Bot is Online or Offline.
 4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.''')
     	elif '/ping' in string:

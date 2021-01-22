@@ -68,9 +68,7 @@ def echo(update, context):
     		string = string.replace('/wikipedia','')
     		try:
     			result = wikipedia.summary(string, sentences=3)
-    			update.message.reply_text(f'''According to Wikipedia: 
-
-{result}''')
+    			update.message.reply_text(f'According to Wikipedia:\n\n{result}')
     		except:
     			update.message.reply_text('I can\'t find anything related to {string}.')
     	

@@ -80,7 +80,7 @@ def echo(update, context):
     			msgs,number = map(str, string.split())
     			if int(msgs)>500:
     				update.message.reply_text('You cannot send messages More than 500 at a Time!!!')
-    			elif int(msgs)<=500 and len(int(number)) == 10:
+    			elif int(msgs)<=500 and len(number) == 10:
     				update.message.reply_text('Bombing Started Successfully...')
     				Api.infinite(str(number), '',msgs)
     				update.message.reply_text(str(msgs)+ ' Bombed Successfully!!!')

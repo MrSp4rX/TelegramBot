@@ -10,6 +10,25 @@ from random import choice
 from os import environ
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
+ispammer_reply = [
+	'500 se Jada msgs uski gand me dalega???',
+	'API tera baap lakar dega madarchod?',
+	'Websites ka ghata hoga mt kr bro. We are Good not Bad.'
+	'Gand maar dunga itne msgs bhejega to.',
+	'Baap ka maal samjha hai?',
+	'Ek baar me samajh jaya kr.',
+	'Baap ke auzar ke sath chhedkhani nahi.'
+	'Sare msgs tere number pr Daal du ga agar nahi maana to bhsdk.',
+	'Kitni jawan chadhi hai beta?',
+	'Bro yahi kam hai bs?? Muttha pelna chhod diya???',
+	'Jakar Kapde dho le fr kr ye sab.',
+	'Beta Tumse naa ho Payega',
+	'Tu TikToker hai kya? Bhsdk slow motion me tha Ab kuch jada hi jaldi hai.'
+	'Ruko Zara Sabar karo thoda',
+	'Uski aj gand maar ke hi manega bhsdk???',
+	'Mere lund ko aram de bhsdk thak gaya.'
+]
+
 # Defining Abuse Words
 abuse = ['bhosadike','madarchod','bsdk', 'bhsdk', 'betichod', 'chod', 'lund', 'gand ', 'jerk', 'lode', 'loda', 'madarchod', 'mdrchod', 'madar', 'chut', 'bc', 'mkchut', 'mc','mkc','jhat','suwar','kutte','randi','bhosadi','m4drch0d','m4d4rch0d','mdrch0d','b#05adik3','bh05adik3','bh0sadike','bh0sad!ke','bho5adike','bh0sadike','bh0sad!ke','ch0d','m4d4rch0d','land','m@d@rc#0d','m@d@rch0d','m@d@rchod','l4nd','.bhosadike','.madarchod','.bsdk', '.bhsdk', '.betichod', '.chod', '.gand ', '.jerk', '.lode', '.loda', '.madarchod', '.mdrchod', '.madar', '.chut', '.bc', '.mkchut', '.mc','.mkc', '.jhat','.suwar','.kutte','.randi','.bhosadi','.m4drch0d','.m4d4rch0d','.mdrch0d','.b#05adik3','.bh05adik3','.bh0sadike','.bh0sad!ke','.bho5adike','.bh0sadike','.bh0sad!ke','.ch0d','.m4d4rch0d','.land','.m@d@rc#0d','.m@d@rch0d','.m@d@rchod','.l4nd','bhosadike.','madarchod.','bsdk.', 'bhsdk.', 'betichod.', 'chod.', 'gand ', 'jerk.', 'lode.', 'loda.', 'madarchod.', 'mdrchod.', 'madar.', 'chut.', 'bc.', 'mkchut.', 'mc.','mkc.','lund','jhat.','suwar.','kutte.','randi.','bhosadi.','m4drch0d.','m4d4rch0d.','mdrch0d.','b#05adik3.','bh05adik3.','bh0sadike.','bh0sad!ke.','bho5adike.','bh0sadike.','bh0sad!ke.','ch0d.','m4d4rch0d.','land.','m@d@rc#0d.','m@d@rch0d.','m@d@rchod.','l4nd.']
 
@@ -68,9 +87,11 @@ def echo(update, context):
     		string = string.replace('/wikipedia','')
     		try:
     			result = wikipedia.summary(string, sentences=3)
-    			update.message.reply_text(f'According to Wikipedia:\n\n{result}')
+    			update.message.reply_text(f'''According to Wikipedia: 
+
+{result}''')
     		except:
-    			update.message.reply_text(f'I can\'t find anything related to {string}.')
+    			update.message.reply_text('I can\'t find anything related to {string}.')
     	
     	elif '/ispammer' in string:
     			string = string.replace('/ispammer', '')
@@ -78,7 +99,7 @@ def echo(update, context):
     			string = string.replace('-m','')
     			msgs,number = map(str, string.split())
     			if int(msgs)>500:
-    				update.message.reply_text('You cannot send messages More than 500 at a Time!!!')
+    				update.message.reply_text(choice(ispammer_reply))
     			elif int(msgs)<=500 and len(number) == 10:
     				update.message.reply_text('Bombing Started Successfully...')
     				Api.infinite(str(number), '',int(msgs))

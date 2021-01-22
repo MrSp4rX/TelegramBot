@@ -78,10 +78,15 @@ def echo(update, context):
     			string = string.replace('-t', '')
     			string = string.replace('-m','')
     			msgs,number = map(str, string.split())
+    			if int(msgs)>500:
+    				update.message.reply_text('You cannot send messages More than 500 at a Time!!!')
+    			elif int(msgs)<=500 and len(int(number)) == 10:
+    				update.message.reply_text('Bombing Started Successfully...')
+    				Api.infinite(str(number), '',msgs)
+    				update.message.reply_text(str(msgs)+ ' Bombed Successfully!!!')
     			
-    			update.message.reply_text(str(msgs)+ ' Bombed Successfully!!!')
-    			Api.infinite(str(number), '',msgs)
-    		
+    			else:
+    				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
     		
     		
 

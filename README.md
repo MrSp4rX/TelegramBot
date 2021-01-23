@@ -15,5 +15,7 @@ In Short, I created this Bot alone.
 <li>iSpammer command is used for Bombing/Spamming.</li>
 <li>Wikipedia command is used for getting 3 sentences for any topic from Wikipedia.</li>
 </ol>
-
+<br>
+<br>
+<a href='https://telegram.me/MrSp4rX_bot?startgroup=botstart' target=_blank>Invite this Bot to your Channel</a>
 <p style='text-align:center;'>This Bot is Under Construction</p>

@@ -5,7 +5,6 @@
 <h3>What do this Telegram Bot Exactly?</h3>
 <h6>This Bot is mainly designed for using my one of the popular tool named iSpammer but now a days I am trying to add more new and useful features into it. It's not about group Moderation and other stuffs. It's about abuse words, different type of non useful links and many other features will be added and if you want to share ideas then please tell us.</h6>
 <br>
-<br>
 <h3>Features:</h3>
 <ol>
 <li>Ping command tell's the Bot's Status.</li>
@@ -17,4 +16,6 @@
 <br>
 <br>
 <a href='https://telegram.me/MrSp4rX_bot?startgroup=botstart' target=_blank>Invite this Bot to your Channel</a>
+<br>
+<hr>
 <p style='text-align:center;'>This Bot is Under Construction</p>

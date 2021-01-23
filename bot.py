@@ -91,7 +91,7 @@ def echo(update, context):
 
 {result}''')
     		except:
-    			update.message.reply_text('I can\'t find anything related to {string}.')
+    			update.message.reply_text(f'I can\'t find anything related to {string}.')
     	
     	elif '/ispammer' in string:
     			string = string.replace('/ispammer', '')

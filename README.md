@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/MrSp4rX/iSpammer/><img src="https://ibb.co/WyqtKx1" alt="MrSp4rX_bot"></a>
+  <a href="https://github.com/MrSp4rX/iSpammer/><img src="https://i.ibb.co/1qh62vx/pic.png" alt="MrSp4rX_bot"></a>
   <br>
   Sparky's Army (Bot)
   <br>

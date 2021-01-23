@@ -1,7 +1,6 @@
 # TelegramBot
 
-Credits:
-In Short, I created this Bot alone.
+<img scr='pic.png'>
 
 <h3>What do this Telegram Bot Exactly?</h3>
 <h6>This Bot is mainly designed for using my one of the popular tool named iSpammer but now a days I am trying to add more new and useful features into it. It's not about group Moderation and other stuffs. It's about abuse words, different type of non useful links and many other features will be added and if you want to share ideas then please tell us.</h6>

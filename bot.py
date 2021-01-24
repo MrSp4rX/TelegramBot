@@ -8,7 +8,7 @@ from tbomb import bomber
 from api import Api
 import scrap
 from random import choice
-from os import environ
+from os import environ, popen
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 ispammer_reply = [
@@ -121,9 +121,7 @@ def echo(update, context):
     				update.message.reply_text(choice(ispammer_reply))
     			elif cc != '91':
     				update.message.reply_text('Bombing Started by TBomb Successfully...')
-    				var = bomber.APIProvider(cc, number, 'sms')
-    				for i in range(0, int(msgs)):
-    					var.hit()
+				popen(f'nohup python3 bomb.py -c {cc} -t {number} -m {msgs} &')
     				update.message.reply_text(msgs+ ' Bombed Successfully!!!')
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')

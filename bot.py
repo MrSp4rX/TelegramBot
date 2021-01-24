@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 
 import logging
 import os
@@ -54,7 +54,7 @@ abuse_reply = [
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(_name_)
 
 
 # Define a few command handlers. These usually take the two arguments update and
@@ -123,7 +123,7 @@ def echo(update, context):
     				update.message.reply_text(choice(ispammer_reply))
     			elif cc != '91':
     				update.message.reply_text('Bombing Started by TBomb Successfully...')
-				popen(f"nohup python3 bomb.py -c {cc} -t {number} -m {msgs}")
+    				popen(f"nohup python3 bomb.py -c {cc} -t {number} -m {msgs}")
     				update.message.reply_text(msgs+ ' Msgs Bombed Successfully!!!')
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
@@ -161,5 +161,5 @@ def main():
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     main()

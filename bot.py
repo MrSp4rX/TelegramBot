@@ -4,6 +4,7 @@
 import logging
 import os
 import wikipedia
+from tbomb import bomber
 from api import Api
 import scrap
 from random import choice
@@ -101,10 +102,27 @@ def echo(update, context):
     			if int(msgs)>500:
     				update.message.reply_text(choice(ispammer_reply))
     			elif int(msgs)<=500 and len(number) == 10:
-    				update.message.reply_text('Bombing Started Successfully...')
+    				update.message.reply_text('Bombing Started by iSpammer Successfully...')
     				Api.infinite(str(number), '',int(msgs))
     				update.message.reply_text(str(msgs)+ ' Bombed Successfully!!!')
     			
+    			else:
+    				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
+    		
+    	elif '/tbomb' in string:
+    			string = string.replace('/tbomb','')
+    			cc, number, msgs = map(str, string.split())
+    			# print(cc)
+    			# print(number)
+    			# print(msgs)
+    			if cc == '91':
+    				update.message.reply_text('Please use iSpammer for Indian Numbers and TBomb for International Numbers.')
+    			elif cc != '91':
+    				update.message.reply_text('Bombing Started by TBomb Successfully...')
+    				var = bomber.APIProvider(cc, number, 'sms')
+    				for i in range(0, int(msgs)):
+    					var.hit()
+    				update.message.reply_text(msgs+ ' Bombed Successfully!!!')
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
     		

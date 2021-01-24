@@ -53,8 +53,7 @@ abuse_reply = [
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-logger = logging.getLogger(_name_)
-
+logger = logging.getLogger(__name__)
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
@@ -90,7 +89,6 @@ def echo(update, context):
     		try:
     			result = wikipedia.summary(string, sentences=3)
     			update.message.reply_text(f'''According to Wikipedia: 
-
 {result}''')
     		except:
     			update.message.reply_text(f'I can\'t find anything related to{string}.')
@@ -160,5 +158,5 @@ def main():
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-if _name_ == '_main_':
-    main()
+if __name__=="__main__":
+	main()

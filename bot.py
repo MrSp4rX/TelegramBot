@@ -117,6 +117,8 @@ def echo(update, context):
     			# print(msgs)
     			if cc == '91':
     				update.message.reply_text('Please use iSpammer for Indian Numbers and TBomb for International Numbers.')
+    			elif int(msgs)>150:
+    				update.message.reply_text(choice(ispammer_reply))
     			elif cc != '91':
     				update.message.reply_text('Bombing Started by TBomb Successfully...')
     				var = bomber.APIProvider(cc, number, 'sms')

@@ -77,7 +77,8 @@ def echo(update, context):
 2. /start - Its used to get this message.
 3. /ping - Its used to check if Bot is Online or Offline.
 4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.
-5. /wikipedia query - Its used to Search anything on wikipedia.
+5. /tbomb cc number msgs - It's used to do SMS Bombing Internationally and format is /tbomb 44 2657368944 150. Thanks to SpeedX for this.
+6. /wikipedia query - Its used to Search anything on wikipedia.
 ''')
     	elif '/ping' in string:
     		if update.message.from_user['username'] == 'MrSp4rX':

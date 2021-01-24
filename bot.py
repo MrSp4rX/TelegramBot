@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -- coding: utf-8 --
+# -*- coding: utf-8 -*-
 
 import logging
 import os
@@ -9,7 +9,6 @@ from api import Api
 import scrap
 from random import choice
 from os import environ
-from os import popen
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 ispammer_reply = [
@@ -54,7 +53,7 @@ abuse_reply = [
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 
 # Define a few command handlers. These usually take the two arguments update and
@@ -78,8 +77,7 @@ def echo(update, context):
 2. /start - Its used to get this message.
 3. /ping - Its used to check if Bot is Online or Offline.
 4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.
-5. /tbomb cc number msgs - It's used to do SMS Bombing Internationally and format is /tbomb 44 2657368944 150. Thanks to SpeedX for this.
-6. /wikipedia query - Its used to Search anything on wikipedia.
+5. /wikipedia query - Its used to Search anything on wikipedia.
 ''')
     	elif '/ping' in string:
     		if update.message.from_user['username'] == 'MrSp4rX':
@@ -123,8 +121,10 @@ def echo(update, context):
     				update.message.reply_text(choice(ispammer_reply))
     			elif cc != '91':
     				update.message.reply_text('Bombing Started by TBomb Successfully...')
-    				popen(f"nohup python3 bomb.py -c {cc} -t {number} -m {msgs}")
-    				update.message.reply_text(msgs+ ' Msgs Bombed Successfully!!!')
+    				var = bomber.APIProvider(cc, number, 'sms')
+    				for i in range(0, int(msgs)):
+    					var.hit()
+    				update.message.reply_text(msgs+ ' Bombed Successfully!!!')
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
     		
@@ -161,5 +161,5 @@ def main():
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()

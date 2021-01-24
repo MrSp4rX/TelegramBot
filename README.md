@@ -16,6 +16,7 @@
 <li>Start command send's the mannual of the Bot.</li>
 <li>Image command scrap images from <a href='https://unsplash.com/'>Unsplash.com</a>.</li>
 <li>iSpammer command is used for Bombing/Spamming.</li>
+<li>TBomb command is used for Bombing and Fun too but It works Internationally.
 <li>Wikipedia command is used for getting 3 sentences for any topic from Wikipedia.</li>
 </ol>
 <br>

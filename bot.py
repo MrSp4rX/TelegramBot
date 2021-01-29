@@ -19,7 +19,7 @@ def nmap(target):
 	status = ''
 	os = ''
 
-	data = getoutput(f'nmap {target} -A').split('\n')
+	data = getoutput(f'bash nmap/bin/nmap {target} -A').split('\n')
 	for _ in data:
 		if not _ == '' and _.split('/')[0].isdigit():
 			open_ports.append(_.rstrip().split()[0].split('/')[0]+':'+_.split()[2])

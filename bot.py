@@ -3,6 +3,7 @@
 
 import logging
 import os
+from threading import Thread
 import wikipedia
 from tbomb import bomber
 from api import Api
@@ -10,6 +11,31 @@ import scrap
 from random import choice
 from os import environ, popen
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from subprocess import getoutput
+
+def nmap(target):
+	open_ports = []
+	services = []
+	status = ''
+	os = ''
+
+	data = getoutput(f'nmap {target} -A').split('\n')
+	for _ in data:
+		if not _ == '' and _.split('/')[0].isdigit():
+			open_ports.append(_.rstrip().split()[0].split('/')[0]+':'+_.split()[2])
+			if len(_.split()) == 4:
+				services.append(_.split()[3])
+		elif 'Host is ' in _:
+			status = _.split(' ')[2]
+		elif 'Running ' in _:
+			os = _.split(':')[1].lstrip()
+	if not services:
+		services = 'could not detect'
+	if not os:
+		os = 'could not detect'
+	return status, open_ports, services, os
+
+
 
 ispammer_reply = [
 	'500 se Jada msgs uski gand me dalega???',
@@ -92,6 +118,28 @@ def echo(update, context):
 {result}''')
     		except:
     			update.message.reply_text(f'I can\'t find anything related to{string}.')
+    	elif '/nmap' in string:
+    		url = string.replace('/nmap','')
+    		update.message.reply_text('Bot will not Respond for 10 to 15 second due to running Nmap command in Background...')
+    		update.message.reply_text('Please wait...')
+    		values = nmap(url)
+    		update.message.reply_text('This Website is '+str(values[0]))
+    		port = values[1]
+    		result = ""
+    		for item in port:
+    			result = result+item + "\n"
+    		update.message.reply_text('Open Ports are:\n'+result)
+    		update.message.reply_text('Operating System is:\n'+values[3])
+    		service = values[2]
+    		services = ''
+    		for serv in service:
+    			if not serv in services:
+    				services = services+serv+'\n'
+    			else:
+    				pass
+    		update.message.reply_text('Running Services are: \n'+services)
+    		
+    		
     	
     	elif '/ispammer' in string:
     			string = string.replace('/ispammer', '')
@@ -111,9 +159,6 @@ def echo(update, context):
     	elif '/tbomb' in string:
     			string = string.replace('/tbomb','')
     			cc, number, msgs = map(str, string.split())
-    			# print(cc)
-    			# print(number)
-    			# print(msgs)
     			if cc == '91':
     				update.message.reply_text('Please use iSpammer for Indian Numbers and TBomb for International Numbers.')
     			elif int(msgs)>150:

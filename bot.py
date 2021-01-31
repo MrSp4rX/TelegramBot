@@ -166,7 +166,7 @@ def echo(update, context):
     			elif cc != '91':
     				update.message.reply_text('Bombing Started by TBomb Successfully...')
     				popen(f'nohup python3 bomb.py -c {cc} -t {number} -m {msgs} &')
-    				update.message.reply_text(msgs+ ' Bombed Successfully!!!')
+    				update.message.reply_text(msgs+ ' msgs Bombed Successfully!!!')
     			else:
     				update.message.reply_text('Something Went Wrong!!! and Report this issue on https://github.com/MrSp4rX/TelegramBot/issues/new and you will get reply in 6 Hours maximum...')
     		

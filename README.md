@@ -20,7 +20,7 @@
 <li>Wikipedia command is used for getting 3 sentences for any topic from Wikipedia.</li>
 </ol>
 <br>
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)]
 <br>
 <a href='https://telegram.me/MrSp4rX_bot?startgroup=botstart' target=_blank>Invite this Bot to your Channel</a>
 <br>

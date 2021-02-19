@@ -1,1 +1,1 @@
-apt update -y && apt upgrade -y
+RUN apt update -y && apt upgrade -y && apt install python3

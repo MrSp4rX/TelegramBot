@@ -1,0 +1,17 @@
+{
+  "name": "Sparky's Bot",
+  "description": "A Telegram bot which supports modern functionalities.",
+  "keywords": [
+    "telegram",
+    "mrsp4rx",
+    "plugin",
+    "mr sparx",
+    "productivity"
+  ],
+  "repository": "https://github.com/MrSp4rX/TelegramBot/",
+  "website": "mrsp4rx.cf",
+  "success_url": "t.me/MrSp4rX",
+  "stack": "container",
+    "TOKEN_HERE": {
+      "description": "Get this value from @BotFather.",
+      "value": ""}

@@ -72,7 +72,9 @@ abuse_reply = [
 	'Teri behn ko utha ke salwar ke sath hi pelunga.',
 	'Hahahaha gandu tera baal pakad ke diwal se lada lada ke tera seer phod ke teri ammy ka mang bharunga',
 	'Madarchod Zuban pe conrol karo warna gand faad denge',
-	'Your Dady can only Abuse Samjha  Bhosadike'
+	'Your Dady can only Abuse Samjha  Bhosadike',
+        'Jada Shanpatti nahi warna, Shahtoot ki Patli dandi maar maar ke Chutad pr Rockstart likh dunga',
+        'Yahi Patak ke chod denge, ab nikal madarchod'
 ]
 
 # Enable logging

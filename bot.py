@@ -84,7 +84,7 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def main():
-    updater = Updater("1592996910:AAHmT8Y1vNSIMmZp8aEkJjuLrBjQCwyYpaQ", use_context=True)
+    updater = Updater(environ['token'], use_context=True)
     dp = updater.dispatcher
     dp.add_handler(MessageHandler(Filters.text, echo))
     dp.add_error_handler(error)

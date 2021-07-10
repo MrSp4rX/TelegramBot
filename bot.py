@@ -5,6 +5,7 @@ import wikipedia
 from tbomb import bomber
 from api import Api
 import scrap
+import requests
 from random import choice
 from os import environ, popen
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -71,11 +72,40 @@ def echo(update, context):
                 update.message.reply_text(f'I can\'t find anything related to{string}.')
 
         elif '/ispammer' in string:
-            update.message.reply_text('This Command is Temporarily Banned by the Creator. @MrSp4rX')
+            try:
+                no = string.split()[1]
+                msgs = string.split()[2]
+                api_url = requests.get("https://raw.githubusercontent.com/MrSp4rX/iSpammerApp/main/api.url")
+                url = api_url.json()["url"]
+                res = requests.get(f"{url}/bomb/{no}/{msgs}").json()
+                update.message.reply_text(f'''
+Response : {res['Response']}
+Mobile Number : {res['Mobile_Number']}
+Messages : {res['Messages']}
+Creator : {res['Creator']}
+Tool : {res['Tool']}
+                ''')
+            except:
+                update.message.reply_text("Something Went Wrong Saar!")
 
         elif '/tbomb' in string:
-                update.message.reply_text('This Command is Temporarily Banned by the Creator. @MrSp4rX')
-            
+            try:
+                cc = string.split()[1]
+                no = string.split()[2]
+                msgs = string.split()[3]
+                api_url = requests.get("https://raw.githubusercontent.com/MrSp4rX/iSpammerApp/main/api.url")
+                url = api_url.json()["url"]
+                res = requests.get(f"{url}/bombint/{cc}/{no}/{msgs}").json()
+                update.message.reply_text(f'''
+Response : {res['Response']}
+Mobile Number : {res['Mobile_Number']}
+Messages : {res['Messages']}
+Creator : {res['Creator']}
+Tool : {res['Tool']}
+                ''')
+            except:
+                update.message.reply_text("Something Went Wrong Saar!")
+    		
     else:
         update.message.reply_text('I didn\'t get you')
 

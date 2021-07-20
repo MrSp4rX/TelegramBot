@@ -47,12 +47,12 @@ def echo(update, context):
         elif '/start' in string:
             update.message.reply_text('''Hey, I am a Bot. I was created by Mr. SparX. He is my Owner. You can do these following things with me:
     			
-                1. /image category - Its used to get a Picture related to that Query.
-                2. /start - Its used to get this message.
-                3. /ping - Its used to check if Bot is Online or Offline.
-                4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.
-                5. /tbomb cc number msgs - It's used to do SMS Bombing Internationally and format is /tbomb 44 2657368944 150. Thanks to SpeedX for this.
-                6. /wikipedia query - Its used to Search anything on wikipedia.
+1. /image category - Its used to get a Picture related to that Query.
+2. /start - Its used to get this message.
+3. /ping - Its used to check if Bot is Online or Offline.
+4. /ispammer -m 10 -t 9999999999 - Its used to do SMS and Call Bombing on anyones Number but its for Indian Use only. Replace 10 with How many Number of Msgs you wanna bomb and Replace 9999999999 with the Mobile Number of Your Target.
+5. /tbomb cc number msgs - It's used to do SMS Bombing Internationally and format is /tbomb 44 2657368944 150. Thanks to SpeedX for this.
+6. /wikipedia query - Its used to Search anything on wikipedia.
                 ''')
 
         elif '/ping' in string:
